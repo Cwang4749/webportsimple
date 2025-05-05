@@ -1,42 +1,274 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Home Section*/
+/* Panorama Background */
+.panobox {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: -2;
+  background-image: linear-gradient(to bottom, #5E9FE0, #9CD4EE);
+}
+.pano1 {
+  height: 100%;
+  width: 200%;
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: -50%;
+  cursor: grab;
+  z-index: -1;
+}
+/* Intro Text */
+.hello {
+  position: fixed;
+  top: 10px;
+  left: 20px;
+  text-align: left;
+  font-family: "Monaco", "Arial";
+  font-size: 1.5rem;
+  line-height: 170%;
+  color: #104744;
+  font-style: italic;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 5px;
+}
+/* Creates 2 grids to hold the bubbles and the asterisk */
+.vertical_container {
+  display: grid;
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+  grid-template-rows: 200px 3.125vh 200px 3.125vh 200px;
+  grid-template-columns: 200px;
+  z-index: -2;
+}
+.horizontal_container {
+  display: grid;
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+  grid-template-rows: 200px;
+  grid-template-columns: 200px 3.125vw 200px 3.125vw 200px;
+  z-index: -2;
+}
+#aboutme { grid-area: 1 / 1 / 2 / 2; }
+#contact { grid-area: 5 / 1 / 6 / 2; }
+#portfolio { grid-area: 1 / 5 / 2 / 6; }
+#experience { grid-area: 1 / 1 / 2 / 2; }
+/* Define a bubble and its interactions: */
+.bubble {
+  width: 200px;
+  height: 200px;
+  background-color: #bae8e8e8;
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  display: grid;
+  transition: .75s;
+  opacity: 1;
+  position: relative;
+  align-items: center;
+  justify-items: center;
+  z-index: 3;
+}
+.bubble:hover {
+  border-radius: 0%;
+  transition: 1s;
+  cursor: pointer;
+}
+/* Modify the text and its interactions: */
+.bubble_heading {
+  position: relative;
+  font-family: "Monaco", "Arial";
+  font-size: 25px;
+  transition: 0.75s;
+  top: 60px;
+}
+.bubble_text {
+  position: relative;
+  font-family: "Monaco", "Arial";
+  font-size: 18px;
+  transition: 0.75s;
+  opacity: 0;
+}
+.bubble:hover .bubble_heading {
+  top: 20%;
+}
+.bubble:hover .bubble_text {
+  opacity: 1;
+  transition: 1.5s;
+}
+
+/*------------------------------------------------------------*/
+
+/* Experience Section */
+.experiencepage {
+  display: block;
+  position: fixed;
+  background-color: rgb(25, 24, 24);
+  width: 100vw;
+  height: 100vh;
+  /* min-width: 1000px; */
+  overflow-x: hidden;
+}
+.experiencepage::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: .4;
+  background: url("./assets/home/stars.gif");
+  z-index: -1;
+}
+.tableheader {
+  position: relative;
+  display: block;
+  left: 2.5vw;
+  width: fit-content;
+  margin-bottom: 2vh;
+  font-size: clamp(15px, 4vh, 100px);
+  font-weight: 900;
+  color: #4682B4;
+  top: 3vh;
+  font-family: "Monaco", "Arial";
+  z-index: 1;
+  mix-blend-mode: difference;
+  text-decoration: underline;
+  font-style: italic;
+  text-underline-offset: 7px;
+}
+/* Size and center the table */
+.table1 {
+  position: relative;
+  top: 3vh;
+  cursor: zoom-in;
+  width: 95vw;
+  /* min-width: 1000px; */
+  margin-bottom: 4vh;
+
+  /* center the table */
+  margin-left: auto;
+  margin-right: auto;
+}
+/*All cells have same background color and border. When hovered, change bg color*/
+.table1 td {
+  border-left: solid 1px white;
+  /* background-color: rgba(232, 232, 232, 0.56); */
+  background-color: rgba(232, 232, 232, .75);
+  border-radius: 10px;
+  margin-bottom: 10vh;
+  font-family: "Monaco", "Arial";
+  font-size: clamp(15px, 2vh, 100px);
+  padding: 2%;
+}
+.table1 td:hover {
+  /* background-color: rgba(237, 210, 143, 0.56); */
+  background-color: rgba(237, 210, 143, 0.9);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+/*Style each column*/
+.table1 td:first-child {
+  border-left: none;
+  width: 14.29vw;
+  /* min-width: 143px; */
   text-align: center;
+  font-weight: 900;
+}
+.table1 td:nth-child(2) {
+  width: 14.29vw;
+  /* min-width: 143px; */
+  text-align: center;
+  font-weight: 900;
+}
+.table1 td:nth-child(3) {
+  width: 71.42vw;
+  /* min-width: 714px; */
+  text-align: left;
+  text-indent: 7%;
+}
+.skilltable {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 95vw; 
+  /* min-width: 1000px; */
+  margin-left: auto; 
+  margin-right: auto;
+  margin-top: 45px;
+  margin-bottom: 50px;
+  overflow: hidden;
+}
+.skillbox {
+  height: 70px;
+  width: max-content;
+  display: flex;
+  margin-right: 50px;
+  margin-bottom: 25px;
+}
+.skill {
+  background: linear-gradient(to left, #f3f2ecb9, #ffefba);
+  color: #0f548c;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 15px 3px 3px 15px;
+  position: relative;
+  top: 10px;
+}
+.skill:hover {
+  box-shadow: 0 0 5px rgb(255, 255, 255);
+  cursor: pointer;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* Popup */
+/* Create popup window with dark transparent edges */
+.popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.516);
+
+  display: flex;
+  justify-content: safe center;
+  align-items: safe center;
+  z-index: 1;
+  cursor: zoom-out;
+  overflow: scroll;
+  overscroll-behavior: contain;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+/* Popup is centered, double spaced and indented*/
+.popupinner {
+  border-radius: 10px;
+  line-height: 200%;
+  position: relative;
+  width: 70%;
+  height: 70%;
+  /* min-width: 500px;
+  min-height: 500px; */
+  padding-left: 4%;
+  padding-right: 4%;
+  background-color: rgb(226, 210, 171);
+  font-family: "Monaco", "Arial";
+  font-size: 1.35rem;
+  overflow: scroll;
+
+  display: flex;
+  justify-content: safe center;
+  align-items: safe center;
+  /* text-indent: 7%; */
+  /* text-wrap: balance; */
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#popuptext {
+  text-indent: 7%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*------------------------------------------------------------*/
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
