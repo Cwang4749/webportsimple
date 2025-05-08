@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from "react"
+import { motion } from "framer-motion"
 
 import pano1 from '../assets/home/pano1.webp'
 
@@ -19,7 +19,7 @@ function Home() {
     }
     return(
         <div 
-            style={{display: "grid", width: "100vw", height: "100vh", zIndex: -2, position: "absolute"}}
+            style={{display: "grid", width: "100vw", height: "100vh", zIndex: -3, position: "relative"}}
         >
             {/* Draggable background, with the boundaries set to the div */}
             <div ref={pano1ref} className="panobox">

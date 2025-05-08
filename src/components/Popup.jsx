@@ -1,5 +1,5 @@
-import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react"
+import { motion, AnimatePresence } from "framer-motion"
 
 // checks if the text is in an array, map if true, or print text if false
 function Popup(props) {
@@ -19,7 +19,7 @@ function Popup(props) {
                 </div>
             }
         </AnimatePresence>
-    );
+    )
 }
 
 export default Popup

@@ -1,3 +1,13 @@
+body {
+  position: relative;
+  margin: 0;
+  z-index: -9;
+}
+#root {
+  position: relative;
+  height: "auto";
+  z-index: -8;
+}
 /* Home Section*/
 /* Panorama Background */
 .panobox {
@@ -14,7 +24,7 @@
   height: 100%;
   width: 200%;
   object-fit: cover;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: -50%;
   cursor: grab;
@@ -103,26 +113,148 @@
 
 /*------------------------------------------------------------*/
 
+/* About Me Section */
+.aboutmepage {
+  width: 100vw;
+  height: 50vh;
+  /* background-color: rgb(166, 164, 147); */
+  background-image: linear-gradient(to bottom left, #9c522d, #e8eab2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  overflow: scroll;
+}
+.profilepic {
+  width: 10%;
+  /* min-width: 150px; */
+  aspect-ratio: 3/4;
+  border-radius: 30px;
+  margin-left: 2%;
+  object-fit: cover;
+  box-shadow: 0 0 30px 5px rgba(30, 48, 107, 0.3);
+}
+.profilepic:hover {
+  box-shadow: 0 0 30px 10px rgba(30, 48, 107, 0.3);
+}
+.am_circlecontainer {
+  width: 3%;
+  min-width: 22px;
+  aspect-ratio: 1/5;
+  margin-left: 2%;
+  margin-right: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.am_circle {
+  width: 100%;
+  aspect-ratio: 1;
+  transition: 0.2s;
+  border-radius: 50%;
+  background-color: rgb(163, 221, 210);
+  opacity: 0.5;
+}
+.am_circle:hover {
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: rgb(146, 226, 211);
+  opacity: 0.75;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+.am_curr_circle {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: rgb(79, 226, 199);
+  cursor: pointer;
+  opacity: 0.75;
+}
+.am_curr_circle:hover {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Flashcard */
+.flashcard {
+  /* width: 50%; */
+  height: 80%;
+  /* min-width: 450px; */
+  aspect-ratio: 3/2;
+  border-radius: 30px;
+
+  margin-left: 7%;
+  cursor: pointer;
+  display: flex;
+  justify-content: safe center;
+  align-items: safe center;
+  overflow: scroll;
+
+  transform-style: preserve-3d;
+  transition: .2s;
+  user-select: none;
+}
+.flashcard:hover {
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+#card0 {
+  background-color: rgb(193, 207, 218);
+}
+#card1 {
+  background-color: rgb(218, 214, 176);
+}
+#card2 {
+  background-color: rgb(218, 175, 175);
+}
+.flashcardtext {
+  display: flex;
+  align-items: safe center;
+  justify-content: safe center;
+
+  width: 85%;
+  text-align: justify;
+
+  line-height: 200%;
+  text-indent: 7%;
+
+  font-family: "Monaco", "Arial";
+  font-size: clamp(10px);
+  font-style: italic;
+  transition: 0.05s;
+}
+.flashcardimg {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*------------------------------------------------------------*/
+
 /* Experience Section */
 .experiencepage {
   display: block;
-  position: fixed;
+  position: relative;
   background-color: rgb(25, 24, 24);
   width: 100vw;
-  height: 100vh;
+  height: auto;
   /* min-width: 1000px; */
   overflow-x: hidden;
 }
 .experiencepage::before {
+  display: block;
   content: "";
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   opacity: .4;
   background: url("./assets/home/stars.gif");
-  z-index: -1;
+  z-index: 0;
 }
 .tableheader {
   position: relative;
@@ -191,6 +323,7 @@
   text-indent: 7%;
 }
 .skilltable {
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -201,6 +334,7 @@
   margin-top: 45px;
   margin-bottom: 50px;
   overflow: hidden;
+  z-index: 1;
 }
 .skillbox {
   height: 70px;
@@ -272,3 +406,202 @@
 
 /*------------------------------------------------------------*/
 
+/* Portfolio Section */
+.PortfolioPage {
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  /* padding-top: 5%; */
+  /* display: flex; */
+  overflow-x: hidden;
+  background-color: rgba(0, 0, 0, 0.88);
+}
+.fireworks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.6;
+}
+.projects {
+  aspect-ratio: 7;
+  width: 100%;
+  background-color: rgb(155, 203, 247);
+  position: relative;
+  border-radius: 30px;
+  display: flex;
+  align-items: safe center;
+  justify-content: safe center;
+  font-family: "Monaco", "Arial";
+  margin-bottom: 20px;
+  scroll-margin-top: 20px;
+  transition: .5s;
+  font-style: italic;
+  line-height: 200%;
+  padding-bottom: 10px;
+}
+.projects_expanded {
+  aspect-ratio: 3;
+  width: 100%;
+  background-color: rgb(155, 203, 247);
+  position: relative;
+  border-radius: 30px;
+  display: flex;
+  align-items: safe center;
+  justify-content: safe center;
+  font-family: "Monaco", "Arial";
+  margin-bottom: 20px;
+  scroll-margin-top: 20px;
+  transition: .5s;
+  font-style: italic;
+  line-height: 200%;
+  padding-bottom: 10px;
+}
+.projects:hover {
+  box-shadow: 0 0 10px 5px rgba(187, 187, 187, 0.5);
+  cursor: pointer;
+}
+#projectname {
+  font-size: 4rem;
+  transition: 0.5s;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+#projectname_expanded {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  font-size: 3.2rem;
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  transition: 0.5s;
+}
+.expandedcontainer {
+  width: 60%;
+  position: absolute;
+  line-height: 3rem;
+  font-size: 1.9rem;
+  top: 25%;
+  left: 5%;
+  text-align: left;
+  font-style: normal;
+}
+.projectlink {
+  width: 30%;
+  aspect-ratio: 3;
+  background-color: rgb(141, 114, 114);
+  border-radius: 15px;
+  align-items: safe center;
+  justify-content: safe center;
+  display: flex;
+  font-style: italic;
+  transition: 0.5s;
+}
+.projectlink:hover {
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, .5);
+  color: white;
+  transition: .5s;
+}
+.preview {
+  top: 5%;
+  height: 90%;
+  position: absolute;
+  object-fit: cover;
+  border-radius: 20px;
+  right: 2%;
+}
+
+/*------------------------------------------------------------*/
+
+/* Contact Section */
+.contactpage {
+  position: relative;
+  width: 100vw;
+  height: 100px;
+
+  display: flex;
+  justify-content: safe center;
+  align-items: safe center;
+  /* background-image: linear-gradient(to bottom, #131317, #000000); */
+}
+#cardprofile {
+  border-radius: 10px;
+  height: 50px;
+  aspect-ratio: 1;
+  position: relative;
+  object-fit: fill;
+  cursor: pointer;
+  filter: brightness(110%);
+}
+.cardlink:hover {
+  box-shadow: 0 0 20px 3px rgba(66, 197, 156, 0.3);
+}
+a {
+  all: unset;
+}
+.cardlink {
+  height: 50px;
+  aspect-ratio: 1;
+
+  background-color: #d1ece7;
+  border-radius: 10px;
+
+  position: relative;
+  display: flex;
+  margin-left: 10px;
+
+  opacity: 0.75;
+  transition: 0.5s;
+  align-items: center;
+  justify-content: center;
+}
+.cardlink:hover {
+  transition: 0.5s;
+  opacity: 1;
+  background-color: rgb(216, 220, 188);
+  cursor: pointer;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+}
+/* All of the logos will be the same width and have the same margins*/
+.logo {
+  width: 70%;
+  aspect-ratio: 1;
+}
+
+/* Alert is in bottom right of screen*/
+.alert {
+  width:fit-content;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(237, 172, 172);
+  border-radius: 10px;
+  padding: 8px;
+
+  color: rgb(47, 62, 176);
+  font-family: "Monaco", "Arial";
+  font-size: 13px;
+
+  /* Normally invisible, only aniimates when copying*/
+  animation: alertfade 1s 1 ease-in;
+  opacity: 0;
+}
+/* Animate the alert from visible to transparent*/
+@keyframes alertfade {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+.blank {
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
