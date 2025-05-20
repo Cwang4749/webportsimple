@@ -11,19 +11,6 @@ function Experience() {
     const [zoom_text, set_text] = useState("");
     const [indent, set_indent] = useState(false);
 
-    const TableVariant = {
-        initial: {
-            y: 30
-        },
-        animate: {
-            y: 0,
-            transition: {
-                duration: 0.3,
-                staggerChildren: 0.07
-            }
-        }
-    };
-
     const SkillVariant = {
         initial: {
             x: "90vw"
@@ -46,56 +33,47 @@ function Experience() {
     return(
         <div
             className="experiencepage"
+            id="experiencepage"
         >
             <div>
-                <motion.div 
-                    initial={{scale: 0.8}} animate={{scale: 1}} transition={{duration: 0.7}}
-                    className="tableheader" id="firstheader"
-                >
-                    EXPERIENCE
-                </motion.div>
+                <div className="tableheader" id="firstheader">EXPERIENCE</div>
                 <table className="table1">
-                    <motion.tbody variants={TableVariant} initial="initial" animate="animate">
+                    <tbody>
                     {
                         work.map((val, key) => (
                             <tr key={key}>
-                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.year, false)}>
+                                <td onClick={() => TableCellClick(val.year, false)}>
                                     {val.year}
-                                </motion.td>
-                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.place, false)}>
+                                </td>
+                                <td onClick={() => TableCellClick(val.place, false)}>
                                     {val.place}
-                                </motion.td>
-                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.description, true)}>
+                                </td>
+                                <td onClick={() => TableCellClick(val.description, true)}>
                                     {val.description.map((str,index) => {return(<p key={index}>{str} <br/></p> )})}
-                                </motion.td>
+                                </td>
                             </tr>
                         ))
-                    }</motion.tbody>
+                    }</tbody>
                 </table>
 
-                <motion.div
-                    initial={{scale: 0.8}} animate={{scale: 1}} transition={{duration: 0.7}}
-                    className="tableheader"
-                >
-                    EDUCATION
-                </motion.div>
+                <div className="tableheader">EDUCATION</div>
                 <table className="table1">
-                    <motion.tbody variants={TableVariant} initial="initial" animate="animate">
+                    <tbody>
                     {
                         education.map((val, key) => (
                             <tr key={key}>
-                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.year, false)}>
+                                <td onClick={() => TableCellClick(val.year, false)}>
                                     {val.year}
-                                </motion.td>
-                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.place, false)}>
+                                </td>
+                                <td onClick={() => TableCellClick(val.place, false)}>
                                     {val.place}
-                                </motion.td>
-                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.description, true)}>
+                                </td>
+                                <td onClick={() => TableCellClick(val.description, true)}>
                                     {val.description.map((str,index) => {return(<p key={index}>{str} <br/></p> )})}
-                                </motion.td>
+                                </td>
                             </tr>
                         ))    
-                    }</motion.tbody>
+                    }</tbody>
                 </table>
 
                 <div className="tableheader">SKILLS</div>
@@ -105,7 +83,7 @@ function Experience() {
                 >
                     {skill.map((val, key) => (
                         <motion.div key={key} className="skillbox" variants={SkillVariant}>
-                            <img loading="lazy" src={rocket} alt="" style={{"height": "100%"}}/>
+                            <img src={rocket} alt="" style={{"height": "100%"}}/>
                             <div className="skill" onClick={() => TableCellClick(val, false)}>{val}</div>
                         </motion.div>
                     ))}

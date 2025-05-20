@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Contact from './Contact.jsx'
 
 import  PortData from "./data/PortfolioData.js";
-import fireworks from "../assets/portfolio/fireworks.mp4";
 
 function Portfolio() {
     const [expanded, set_expanded] = useState(false);
@@ -13,12 +12,12 @@ function Portfolio() {
     }
 
     return(
-        <div className="PortfolioPage">
+        <div className="PortfolioPage" id="portfoliopage">
 
-            <video
+            {/* <video
                 loading="lazy" src={fireworks} className="fireworks"
                 autoPlay loop muted
-            />
+            /> */}
 
             <div>
             {PortData.map((project, index) => {
@@ -40,7 +39,7 @@ function Portfolio() {
                 }
 
                 return(
-                    <div key={index}>
+                    <div key={index} style={{justifyContent: "center", display: "flex"}}>
                         <div key={index} ref={proj_ref} className={CurrExpanded(index) ? "projects_expanded" : "projects"} onClick={() => ExpandProj(index)}>
                             <p id={CurrExpanded(index) ? "projectname_expanded" : "projectname"}>{project.projectName}</p>
                             {CurrExpanded(index) ? 

@@ -31,21 +31,9 @@ function AboutMe() {
     }
 
     return(
-        <motion.div
-            initial={{
-                opacity: 0,
-                clipPath: "polygon(50vw 0, 50vw 0, 50vw 100vh, 50vw 100vh)"
-            }}
-            animate={{
-                opacity: 1,
-                clipPath: "polygon(100% 0, 0 0, 0% 100%, 100% 100%)"
-            }}
-            exit={{
-                opacity: 0,
-                clipPath: "polygon(50vw 0, 50vw 0, 50vw 100vh, 50vw 100vh)"
-            }}
-            transition={{duration: .3}}
+        <div
             className="aboutmepage"
+            id="aboutmepage"
         >
             <motion.img
                 initial={{scale: 0.8}} animate={{scale: 1}} transition={{duration: 0.2, delay: 0.15}}
@@ -66,7 +54,7 @@ function AboutMe() {
                 <div className={curr_circle===2 ? "am_curr_circle" : "am_circle"} onClick={() => ChangeCard(2)}/>
             </div>
 
-        </motion.div>
+        </div>
     )
 }
 

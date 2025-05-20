@@ -2,33 +2,39 @@ body {
   position: relative;
   margin: 0;
   z-index: -9;
+  scroll-behavior: smooth !important;
 }
 #root {
   position: relative;
   height: "auto";
   z-index: -8;
+  scroll-behavior: smooth !important;
+}
+html {
+  scroll-behavior: smooth !important;
 }
 /* Home Section*/
 /* Panorama Background */
 .panobox {
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  overflow: hidden;
-  z-index: -2;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  z-index: 0;
   background-image: linear-gradient(to bottom, #5E9FE0, #9CD4EE);
 }
 .pano1 {
-  height: 100%;
+  height: 150%;
   width: 200%;
   object-fit: cover;
   position: absolute;
   top: 0;
   left: -50%;
   cursor: grab;
-  z-index: -1;
+  z-index: 1;
 }
 /* Intro Text */
 .hello {
@@ -110,6 +116,47 @@ body {
   opacity: 1;
   transition: 1.5s;
 }
+.observer {
+  height: 5px;
+  width: 5px;
+  position: absolute;
+  top: 50vh;
+  left: 30vw;
+  z-index: -100;
+}
+.navbar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100vw;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+}
+.nav_heading {
+  display: flex;
+  width: auto;
+  height: auto;
+  font-family: "Monaco", "Arial";
+  font-size: 23px;
+  align-items: center;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  z-index: 1000;
+  background-color: #eee5e5;
+  border-radius: 0 0 15px 15px;
+  color: rgb(18, 86, 30);
+  opacity: 90%;
+}
+.nav_heading:hover {
+  border-radius: 0%;
+  background-color: #f7f5b8;
+  transition: 1s;
+  cursor: pointer;
+  color: rgb(109, 87, 53);
+  opacity: 1;
+}
 
 /*------------------------------------------------------------*/
 
@@ -118,12 +165,15 @@ body {
   width: 100vw;
   height: 50vh;
   /* background-color: rgb(166, 164, 147); */
-  background-image: linear-gradient(to bottom left, #9c522d, #e8eab2);
+  /* background-image: linear-gradient(to bottom left, #9c522d, #e8eab2); */
   display: flex;
   align-items: center;
   justify-content: center;
   user-select: none;
   overflow: scroll;
+  position: relative;
+  z-index: 1;
+  padding-top: 2%;
 }
 .profilepic {
   width: 10%;
@@ -153,26 +203,27 @@ body {
   aspect-ratio: 1;
   transition: 0.2s;
   border-radius: 50%;
-  background-color: rgb(163, 221, 210);
-  opacity: 0.5;
+  background-color: rgb(255, 0, 0);
+  opacity: 0.75;
 }
 .am_circle:hover {
   cursor: pointer;
   transition: 0.2s;
-  background-color: rgb(146, 226, 211);
-  opacity: 0.75;
+  background-color: rgb(185, 2, 2);
+  opacity: 1;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
 }
 .am_curr_circle {
   width: 100%;
   aspect-ratio: 1;
   border-radius: 50%;
-  background-color: rgb(79, 226, 199);
+  background-color: rgb(148, 14, 14);
   cursor: pointer;
-  opacity: 0.75;
+  opacity: 0.9;
 }
 .am_curr_circle:hover {
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
+  opacity: 1;
 }
 
 /* Flashcard */
@@ -198,13 +249,13 @@ body {
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.3);
 }
 #card0 {
-  background-color: rgb(193, 207, 218);
+  background-color: rgb(218, 175, 175);
 }
 #card1 {
   background-color: rgb(218, 214, 176);
 }
 #card2 {
-  background-color: rgb(218, 175, 175);
+  background-color: rgb(194, 180, 215);
 }
 .flashcardtext {
   display: flex;
@@ -221,6 +272,7 @@ body {
   font-size: clamp(10px);
   font-style: italic;
   transition: 0.05s;
+  color: #024276;
 }
 .flashcardimg {
   width: 100%;
@@ -238,7 +290,7 @@ body {
 .experiencepage {
   display: block;
   position: relative;
-  background-color: rgb(25, 24, 24);
+  /* background-color: rgb(25, 24, 24); */
   width: 100vw;
   height: auto;
   /* min-width: 1000px; */
@@ -253,7 +305,7 @@ body {
   width: 100%;
   height: 100%;
   opacity: .4;
-  background: url("./assets/home/stars.gif");
+  /* background: url("./assets/home/stars.gif"); */
   z-index: 0;
 }
 .tableheader {
@@ -412,25 +464,16 @@ body {
   width: 100%;
   height: auto;
   justify-content: center;
-  /* padding-top: 5%; */
+  padding-top: 5%;
   /* display: flex; */
   overflow-x: hidden;
-  background-color: rgba(0, 0, 0, 0.88);
-}
-.fireworks {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  opacity: 0.6;
+  /* background-color: rgba(0, 0, 0, 0.88); */
 }
 .projects {
   aspect-ratio: 7;
-  width: 100%;
-  background-color: rgb(155, 203, 247);
+  width: 75%;
+  background-color: rgb(238, 198, 137);
+  color: #2f2dae;
   position: relative;
   border-radius: 30px;
   display: flex;
@@ -446,8 +489,9 @@ body {
 }
 .projects_expanded {
   aspect-ratio: 3;
-  width: 100%;
-  background-color: rgb(155, 203, 247);
+  width: 75%;
+  background-color: rgb(238, 198, 137);
+  color: #211ea1;
   position: relative;
   border-radius: 30px;
   display: flex;
@@ -460,13 +504,18 @@ body {
   font-style: italic;
   line-height: 200%;
   padding-bottom: 10px;
+  opacity: .9;
 }
 .projects:hover {
-  box-shadow: 0 0 10px 5px rgba(187, 187, 187, 0.5);
+  box-shadow: 0 0 20px 10px rgba(84, 84, 84, 0.5);
+  cursor: pointer;
+}
+.projects_expanded:hover {
+  box-shadow: 0 0 20px 10px rgba(84, 84, 84, 0.5);
   cursor: pointer;
 }
 #projectname {
-  font-size: 4rem;
+  font-size: 3rem;
   transition: 0.5s;
   text-decoration: underline;
   text-underline-offset: 10px;
@@ -474,7 +523,7 @@ body {
 #projectname_expanded {
   text-decoration: underline;
   text-underline-offset: 5px;
-  font-size: 3.2rem;
+  font-size: 2rem;
   position: absolute;
   top: 5%;
   left: 5%;
@@ -483,8 +532,8 @@ body {
 .expandedcontainer {
   width: 60%;
   position: absolute;
-  line-height: 3rem;
-  font-size: 1.9rem;
+  line-height: 2rem;
+  font-size: 1.2rem;
   top: 25%;
   left: 5%;
   text-align: left;

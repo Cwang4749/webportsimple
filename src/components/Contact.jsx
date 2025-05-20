@@ -24,7 +24,7 @@ function Contact() {
     };
 
     return(
-        <div className="contactpage">
+        <div className="contactpage" id="contactpage">
             {/* Business card: external links + emails; links open in new tabs and emails are copied upon click */}
             
             <motion.a href="https://calvin-wang.web.app/" target="_blank" rel="noreferrer" className="cardlink"
