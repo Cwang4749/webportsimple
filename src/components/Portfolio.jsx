@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Contact from './Contact.jsx'
 
 import  PortData from "./data/PortfolioData.js";
@@ -11,8 +11,31 @@ function Portfolio() {
         return expanded && projectIndex === proj_index;
     }
 
+    const targetRef = useRef(null);
+    useEffect(() => {
+        const options = {
+            root: null,
+            threshold: 0.2,
+            rootMargin: '0px'
+        }
+        const observer = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+            setTimeout(() => {
+                if(document.getElementById("port") != null) {
+                    if(entry.isIntersecting) {
+                        document.getElementById("port").style.textDecoration = "underline";
+                    }
+                    else {
+                        document.getElementById("port").style.textDecoration = "none";
+                    }
+                }
+            }, 10);
+        },options)
+        observer.observe(targetRef.current);
+    }, [])
+
     return(
-        <div className="PortfolioPage" id="portfoliopage">
+        <div className="PortfolioPage" id="portfoliopage" ref={targetRef}>
 
             {/* <video
                 loading="lazy" src={fireworks} className="fireworks"

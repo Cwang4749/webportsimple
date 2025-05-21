@@ -1,6 +1,6 @@
 import React from "react";
-import { useState } from "react";
-import { easeInOut, motion, useAnimate } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
+import { easeInOut, motion } from "framer-motion";
 import Alert from "./Alert";
 
 import cardprofile from "../assets/contact/cardprofile.webp";
@@ -23,8 +23,33 @@ function Contact() {
         set_copy(text);
     };
 
+    const tarRef = useRef(null);
+        useEffect(() => {
+            const options = {
+                root: null,
+                threshold: 0.9,
+                rootMargin: '0px'
+            }
+            const observer = new IntersectionObserver((entries) => {
+                const entry = entries[0];
+                setTimeout(() => {
+                    if(document.getElementById("con") != null) {
+                        if(entry.isIntersecting) {
+                            document.getElementById("con").style.textDecoration = "underline";
+                            document.getElementById("port").style.textDecoration = "none";
+                        }
+                        else {
+                            document.getElementById("con").style.textDecoration = "none";
+                            document.getElementById("port").style.textDecoration = "underline";
+                        }
+                    }
+                }, 10);
+            },options)
+            observer.observe(tarRef.current);
+        }, [])
+
     return(
-        <div className="contactpage" id="contactpage">
+        <div className="contactpage" id="contactpage" ref={tarRef}>
             {/* Business card: external links + emails; links open in new tabs and emails are copied upon click */}
             
             <motion.a href="https://calvin-wang.web.app/" target="_blank" rel="noreferrer" className="cardlink"

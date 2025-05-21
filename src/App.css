@@ -157,6 +157,21 @@ html {
   color: rgb(109, 87, 53);
   opacity: 1;
 }
+.uparrow {
+  height: 50px;
+  width: 50px;
+  right: 50px;
+  bottom: 50px;
+  position: fixed;
+  display: block;
+  transform: rotateZ(-45deg);
+  opacity: 0.7;
+}
+.uparrow:hover{
+  scale: 1.1;
+  cursor: pointer;
+  opacity: 1;
+}
 
 /*------------------------------------------------------------*/
 
@@ -183,6 +198,10 @@ html {
   margin-left: 2%;
   object-fit: cover;
   box-shadow: 0 0 30px 5px rgba(30, 48, 107, 0.3);
+  background-color: #6fa7d5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .profilepic:hover {
   box-shadow: 0 0 30px 10px rgba(30, 48, 107, 0.3);

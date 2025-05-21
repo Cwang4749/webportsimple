@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef, useEffect} from "react";
 import { motion } from "framer-motion";
 import Popup from "./Popup.jsx";
 
@@ -30,10 +30,34 @@ function Experience() {
         set_indent(indnt);
     }
 
+    const targetRef = useRef(null);
+    useEffect(() => {
+        const options = {
+            root: null,
+            threshold: 0.2,
+            rootMargin: '0px'
+        }
+        const observer = new IntersectionObserver((entries) => {
+            const entry = entries[0];
+            setTimeout(() => {
+                if(document.getElementById("exp") != null) {
+                    if(entry.isIntersecting) {
+                        document.getElementById("exp").style.textDecoration = "underline";
+                    }
+                    else {
+                        document.getElementById("exp").style.textDecoration = "none";
+                    }
+                }
+            }, 10);
+        },options)
+        observer.observe(targetRef.current);
+    }, [])
+
     return(
         <div
             className="experiencepage"
             id="experiencepage"
+            ref={targetRef}
         >
             <div>
                 <div className="tableheader" id="firstheader">EXPERIENCE</div>
