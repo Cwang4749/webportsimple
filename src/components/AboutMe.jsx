@@ -98,7 +98,7 @@ function AboutMe() {
                 className="profilepic"
             >
                 <motion.img
-                    initial={{scale: 0.8}} animate={{scale: 1}} transition={{duration: 0.2, delay: 0.15}}
+                    initial={{scale: 0.8}} transition={{duration: 0.2, delay: 0.15}} whileInView={{scale: 1}}
                     loading="lazy" src={profile}
                     style={{
                         width: "90%",

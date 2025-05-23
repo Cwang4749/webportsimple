@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react"
-import { motion, AnimatePresence} from "framer-motion"
-import uparrow from "../assets/portfolio/fabarrow.png"
+import { motion, AnimatePresence, useScroll, useTransform} from "framer-motion"
+import uparrow from "../assets/home/uparrow.png"
 
 function Home() {
 
@@ -32,6 +32,12 @@ function Home() {
             y: -40,
             transition: {
                 duration: 0.2
+            }
+        },
+        hover: {
+            y: -10,
+            transition: {
+                duration: 0.1
             }
         }
     }
@@ -68,6 +74,12 @@ function Home() {
         }, 1000);
     };
 
+    const {scrollYProgress} = useScroll();
+    const fontColor = useTransform(
+        scrollYProgress,
+        [0, 1],
+        ["#0b4e02", "#57bd4a"]
+    );
     return(
         <div
             style={{display: "grid", width: "100vw", height: "100vh", zIndex: 2, position: "relative", x: 0, y: 0}}
@@ -149,15 +161,19 @@ function Home() {
             <motion.div className="navbar">
                 <motion.a onClick={handleNav} href="#aboutmepage" className="nav_heading" id="abme"
                     variants={NavVariant} initial="initial" animate="animate" exit="exit" transition={{duration: 0.5}}
+                    whileHover="hover"
                 >About Me</motion.a>
                 <motion.a onClick={handleNav} href="#experiencepage" className="nav_heading" id="exp"
                     variants={NavVariant} initial="initial" animate="animate" exit="exit" transition={{duration: 0.6}}
+                    whileHover="hover"
                 >Experience</motion.a>
                 <motion.a onClick={handleNav} href="#portfoliopage" className="nav_heading" id="port"
                     variants={NavVariant} initial="initial" animate="animate" exit="exit" transition={{duration: 0.7}}
+                    whileHover="hover"
                 >Portfolio</motion.a>
                 <motion.a onClick={handleNav} href="#contactpage" className="nav_heading" id="con"
                     variants={NavVariant} initial="initial" animate="animate" exit="exit" transition={{duration: 0.8}}
+                    whileHover="hover"
                 >Contact</motion.a>
 
                 <motion.a href="#homepage" className="uparrow" onClick={handleNav}

@@ -11,6 +11,19 @@ function Experience() {
     const [zoom_text, set_text] = useState("");
     const [indent, set_indent] = useState(false);
 
+    const TableVariant = {
+        initial: {
+            y: 30
+        },
+        animate: {
+            y: 0,
+            transition: {
+                duration: 0.3,
+                staggerChildren: 0.07
+            }
+        }
+    };
+
     const SkillVariant = {
         initial: {
             x: "90vw"
@@ -60,47 +73,47 @@ function Experience() {
             ref={targetRef}
         >
             <div>
-                <div className="tableheader" id="firstheader">EXPERIENCE</div>
+                <motion.div className="tableheader" id="firstheader" initial={{x: -50}} whileInView={{x: 0}}>EXPERIENCE</motion.div>
                 <table className="table1">
-                    <tbody>
+                    <motion.tbody variants={TableVariant} initial="initial" whileInView="animate">
                     {
                         work.map((val, key) => (
                             <tr key={key}>
-                                <td onClick={() => TableCellClick(val.year, false)}>
+                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.year, false)}>
                                     {val.year}
-                                </td>
-                                <td onClick={() => TableCellClick(val.place, false)}>
+                                </motion.td>
+                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.place, false)}>
                                     {val.place}
-                                </td>
-                                <td onClick={() => TableCellClick(val.description, true)}>
+                                </motion.td>
+                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.description, true)}>
                                     {val.description.map((str,index) => {return(<p key={index}>{str} <br/></p> )})}
-                                </td>
+                                </motion.td>
                             </tr>
                         ))
-                    }</tbody>
+                    }</motion.tbody>
                 </table>
 
-                <div className="tableheader">EDUCATION</div>
+                <motion.div className="tableheader" initial={{x: -50}} whileInView={{x: 0}}>EDUCATION</motion.div>
                 <table className="table1">
-                    <tbody>
+                    <motion.tbody variants={TableVariant} initial="initial" whileInView="animate">
                     {
                         education.map((val, key) => (
                             <tr key={key}>
-                                <td onClick={() => TableCellClick(val.year, false)}>
+                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.year, false)}>
                                     {val.year}
-                                </td>
-                                <td onClick={() => TableCellClick(val.place, false)}>
+                                </motion.td>
+                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.place, false)}>
                                     {val.place}
-                                </td>
-                                <td onClick={() => TableCellClick(val.description, true)}>
+                                </motion.td>
+                                <motion.td variants={TableVariant} onClick={() => TableCellClick(val.description, true)}>
                                     {val.description.map((str,index) => {return(<p key={index}>{str} <br/></p> )})}
-                                </td>
+                                </motion.td>
                             </tr>
                         ))    
-                    }</tbody>
+                    }</motion.tbody>
                 </table>
 
-                <div className="tableheader">SKILLS</div>
+                <motion.div className="tableheader" initial={{x: -50}} whileInView={{x: 0}}>SKILLS</motion.div>
                 <motion.div className="skilltable"
                     variants={SkillVariant} initial="initial"
                     whileInView="animate" viewport={{once: true}}

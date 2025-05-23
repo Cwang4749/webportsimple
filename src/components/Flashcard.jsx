@@ -23,7 +23,7 @@ function Flashcard(props) {
 
     return (
         <motion.div ref={scope}
-            initial={{rotateY: 90}} animate={{rotateY: 0}} transition={{duration: 0.2}}
+            initial={{rotateY: 90}} transition={{duration: 0.2}} whileInView={{rotateY: 0}}
             className="flashcard" onClick={FlipFlashcard} id={"card" + props.bg_color}
         >
             <div className="flashcardtext">

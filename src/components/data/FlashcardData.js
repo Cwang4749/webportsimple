@@ -1,5 +1,5 @@
 import redenvelope from '../../assets/aboutme/redenvelope.webp';
-import scenery1 from '../../assets/aboutme/scenery.mp4';
+import scenery1 from '../../assets/aboutme/scenery1.webp';
 import scenery2 from '../../assets/aboutme/scenery2.webp';
 import scenery3 from '../../assets/aboutme/scenery3.mp4';
 import blackbelt from '../../assets/aboutme/blackbelt.webp';
@@ -14,7 +14,7 @@ const FlashcardData = [
     {
         description: ["I enjoy spending time with my family, especially taking them to parks and walking the trails. Although I enjoy most sports, the one I play the most is basketball. At home, I play games, watch movies/tv shows, and read."],
         image: [scenery1, scenery2, scenery3],
-        imageType: [1, 0, 1]
+        imageType: [0, 0, 1]
     },
     {
         description: [
