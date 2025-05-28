@@ -98,7 +98,7 @@ function Home() {
 
                 <div className="vertical_container">
                     <motion.div
-                        initial={{ y: -30 }} animate={{ y: 0 }} exit={{ y: -30, transition: {duration: 0.2} }}
+                        initial={{ y: -30 }} animate={{ y: 0 }} exit={{ y: -30, opacity: 0, transition: {duration: 0.2} }}
                         transition={{duration: 0.5}} id="aboutme"
                     >
                         <a href="#aboutmepage" onClick={handleNav}
@@ -127,7 +127,7 @@ function Home() {
                 </div>
 
                 <div className="horizontal_container">
-                    <motion.div initial={{ x: 30 }} animate={{ x: 0 }} exit={{ x: 30, transition: {duration: 0.2} }}
+                    <motion.div initial={{ x: 30 }} animate={{ x: 0 }} exit={{ x: 30, opacity: 0, transition: {duration: 0.2} }}
                         transition={{duration: 0.5}} id="portfolio"
                     >
                         <a href="#portfoliopage" onClick={handleNav}
@@ -140,7 +140,7 @@ function Home() {
                         </a>
                     </motion.div>
 
-                    <motion.div initial={{ x: -30 }} animate={{ x: 0 }} exit={{ x: -30, transition: {duration: 0.2} }}
+                    <motion.div initial={{ x: -30 }} animate={{ x: 0 }} exit={{ x: -30, opacity: 0, transition: {duration: 0.2} }}
                         transition={{duration: 0.5}} id="experience"
                     >
                         <a href="#experiencepage" onClick={handleNav}
